@@ -60,14 +60,28 @@ int main() {
 
     for (int i = 0; i < nonZeroElements; i++) {
         int row, col, value;
-        cout << "Enter row, column, and value for element " << i + 1 << ": ";
-        cout << "Row: ";
-        cin >> row;
-        cout << "Column: ";
-        cin >> col;
-        cout << "Value: ";
-        cin >> value;
-        sparseMatrix.insert(row, col, value);
+        bool validInput = false;
+        // Loop to validate input
+        while (!validInput) {
+            cout << "Enter row, column, and value for element " << i + 1 << ": " << endl;
+            cout << "Row: ";
+            cin >> row;
+            cout << "Column: ";
+            cin >> col;
+            cout << "Value: ";
+            cin >> value;
+            // Validation
+            if (value == 0) {
+                cout << "Error: Value cannot be zero. Please try again.\n";
+                continue;
+            }
+            if (row < 0 || row >= rows || col < 0 || col >= cols) {
+                cout << "Error: Row and column indices out of bounds. Please try again.\n";
+                continue;
+            }
+            validInput = true;
+        }
+            sparseMatrix.insert(row, col, value);
     }
 
     cout << "\nSparse Matrix Representation:\n";
