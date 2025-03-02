@@ -109,7 +109,7 @@ int main() {
     std::string hash = sha256(bookOfMarkText);
     
     // Print Result
-    std::cout << "SHA-256 Hash of the Book of Mark: " << hash << std::endl;
+    std::cout << "SHA-256 Hash of the Book of Mark: \n"<< hash << std::endl;
 
     return 0;
 }
